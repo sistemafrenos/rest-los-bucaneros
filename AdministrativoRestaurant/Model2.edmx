@@ -1,0 +1,1091 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BucaneroModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="BucaneroModelStoreContainer">
+          <EntitySet Name="Anexos" EntityType="BucaneroModel.Store.Anexos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Bancos" EntityType="BucaneroModel.Store.Bancos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Cajas" EntityType="BucaneroModel.Store.Cajas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Comprobantes" EntityType="BucaneroModel.Store.Comprobantes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Contadores" EntityType="BucaneroModel.Store.Contadores" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CuentasContables" EntityType="BucaneroModel.Store.CuentasContables" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CuentasContablesMovimientos" EntityType="BucaneroModel.Store.CuentasContablesMovimientos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Departamentos" EntityType="BucaneroModel.Store.Departamentos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Depositos" EntityType="BucaneroModel.Store.Depositos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DesgloseCheques" EntityType="BucaneroModel.Store.DesgloseCheques" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DesgloseTarjetas" EntityType="BucaneroModel.Store.DesgloseTarjetas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Documentos" EntityType="BucaneroModel.Store.Documentos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DocumentosProductos" EntityType="BucaneroModel.Store.DocumentosProductos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="dtproperties" EntityType="BucaneroModel.Store.dtproperties" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Monedas" EntityType="BucaneroModel.Store.Monedas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Productos" EntityType="BucaneroModel.Store.Productos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="BucaneroModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tarjetas" EntityType="BucaneroModel.Store.Tarjetas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Terceros" EntityType="BucaneroModel.Store.Terceros" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Transacciones" EntityType="BucaneroModel.Store.Transacciones" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Varios" EntityType="BucaneroModel.Store.Varios" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_DocumentosProductos_Documentos" Association="BucaneroModel.Store.FK_DocumentosProductos_Documentos">
+            <End Role="Documentos" EntitySet="Documentos" />
+            <End Role="DocumentosProductos" EntitySet="DocumentosProductos" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Anexos">
+          <Key>
+            <PropertyRef Name="IdAnexo" />
+          </Key>
+          <Property Name="IdAnexo" Type="char" Nullable="false" MaxLength="6" />
+          <Property Name="Tipo" Type="varchar" MaxLength="20" />
+          <Property Name="IdFK" Type="varchar" MaxLength="7" />
+          <Property Name="Variable" Type="varchar" MaxLength="30" />
+          <Property Name="Texto" Type="varchar" MaxLength="200" />
+          <Property Name="Valor" Type="float" />
+          <Property Name="TipoDato" Type="int" />
+        </EntityType>
+        <EntityType Name="Bancos">
+          <Key>
+            <PropertyRef Name="IdBanco" />
+          </Key>
+          <Property Name="IdBanco" Type="varchar" Nullable="false" MaxLength="6" />
+          <Property Name="Codigo" Type="nvarchar" MaxLength="20" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sucursal" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cuenta" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gerente" Type="nvarchar" MaxLength="50" />
+          <Property Name="CuentaContable" Type="nvarchar" MaxLength="30" />
+          <Property Name="PorcentajeDebitoBancario" Type="float" />
+          <Property Name="FormatoCheque" Type="nvarchar" MaxLength="50" />
+          <Property Name="FormatoDeposito" Type="nvarchar" MaxLength="50" />
+          <Property Name="FormatoNotaDeDebito" Type="nvarchar" MaxLength="50" />
+          <Property Name="FormatoNotaDeCredito" Type="nvarchar" MaxLength="50" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cajas">
+          <Key>
+            <PropertyRef Name="IdCaja" />
+          </Key>
+          <Property Name="IdCaja" Type="nvarchar" Nullable="false" MaxLength="6" />
+          <Property Name="Cajero" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Apertura" Type="datetime" />
+          <Property Name="Cierre" Type="datetime" />
+          <Property Name="FondoApertura" Type="money" />
+        </EntityType>
+        <EntityType Name="Comprobantes">
+          <Key>
+            <PropertyRef Name="IdComprobante" />
+          </Key>
+          <Property Name="IdComprobante" Type="varchar" Nullable="false" MaxLength="6" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Tipo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Contadores">
+          <Key>
+            <PropertyRef Name="Variable" />
+          </Key>
+          <Property Name="Variable" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Valor" Type="int" />
+        </EntityType>
+        <EntityType Name="CuentasContables">
+          <Key>
+            <PropertyRef Name="IdCuentaContable" />
+          </Key>
+          <Property Name="IdCuentaContable" Type="varchar" Nullable="false" MaxLength="6" />
+          <Property Name="IdCuenta" Type="varchar" MaxLength="30" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+          <Property Name="DeMovimientos" Type="int" />
+          <Property Name="DePresupuestos" Type="int" />
+          <Property Name="ManejaBases" Type="int" />
+          <Property Name="ManejaTerceros" Type="int" />
+          <Property Name="UsaCentroDeCostos" Type="int" />
+          <Property Name="CentroDeCostoFijo" Type="int" />
+          <Property Name="CodigoCentroCosto" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="CuentasContablesMovimientos">
+          <Key>
+            <PropertyRef Name="IdMovimiento" />
+          </Key>
+          <Property Name="IdMovimiento" Type="varchar" Nullable="false" MaxLength="6" />
+          <Property Name="IdComprobante" Type="varchar" MaxLength="6" />
+          <Property Name="IdCuenta" Type="varchar" MaxLength="30" />
+          <Property Name="Debe" Type="money" />
+          <Property Name="Haber" Type="money" />
+          <Property Name="Concepto" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Departamentos">
+          <Key>
+            <PropertyRef Name="IdDepartamento" />
+          </Key>
+          <Property Name="IdDepartamento" Type="varchar" Nullable="false" MaxLength="6" />
+          <Property Name="Codigo" Type="varchar" MaxLength="6" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Clase" Type="nvarchar" MaxLength="20" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Depositos">
+          <Key>
+            <PropertyRef Name="IdDeposito" />
+          </Key>
+          <Property Name="IdDeposito" Type="varchar" Nullable="false" MaxLength="6" />
+          <Property Name="Codigo" Type="nvarchar" MaxLength="20" />
+          <Property Name="Deposito" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Responsable" Type="nvarchar" MaxLength="50" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="DesgloseCheques">
+          <Key>
+            <PropertyRef Name="IdDesgloseCheque" />
+          </Key>
+          <Property Name="IdDesgloseCheque" Type="varchar" Nullable="false" MaxLength="6" />
+          <Property Name="IdTransaccion" Type="varchar" MaxLength="6" />
+          <Property Name="ChequesMismoBanco" Type="money" />
+          <Property Name="LiberacionMismoBanco" Type="datetime" />
+          <Property Name="ChequesMismaPlaza" Type="money" />
+          <Property Name="LiberacionMismaPlaza" Type="datetime" />
+          <Property Name="ChequesFueraPlaza" Type="money" />
+          <Property Name="LiberacionFueraPlaza" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DesgloseTarjetas">
+          <Key>
+            <PropertyRef Name="IdDesgloseTarjeta" />
+          </Key>
+          <Property Name="IdDesgloseTarjeta" Type="varchar" Nullable="false" MaxLength="6" />
+          <Property Name="IdTransaccion" Type="varchar" MaxLength="6" />
+          <Property Name="IdTarjeta" Type="varchar" MaxLength="6" />
+          <Property Name="Monto" Type="money" />
+          <Property Name="BaseImponible" Type="money" />
+          <Property Name="Comision" Type="money" />
+          <Property Name="ISLR" Type="money" />
+          <Property Name="Neto" Type="money" />
+        </EntityType>
+        <EntityType Name="Documentos">
+          <Key>
+            <PropertyRef Name="IdDocumento" />
+          </Key>
+          <Property Name="IdDocumento" Type="varchar" Nullable="false" MaxLength="6" />
+          <Property Name="IdTercero" Type="varchar" MaxLength="7" />
+          <Property Name="IdDepositoOrigen" Type="nvarchar" MaxLength="6" />
+          <Property Name="IdDepositoDestino" Type="nvarchar" MaxLength="6" />
+          <Property Name="IdCaja" Type="nvarchar" MaxLength="6" />
+          <Property Name="Vinculo" Type="nvarchar" MaxLength="20" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="20" />
+          <Property Name="Numero" Type="nvarchar" MaxLength="7" />
+          <Property Name="NumeroFactura" Type="nvarchar" MaxLength="20" />
+          <Property Name="NumeroControl" Type="nvarchar" MaxLength="20" />
+          <Property Name="DocumentoAfectado" Type="nvarchar" MaxLength="7" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="MontoGravable" Type="float" />
+          <Property Name="MontoIva" Type="float" />
+          <Property Name="MontoExento" Type="float" />
+          <Property Name="MontoRetenido" Type="float" />
+          <Property Name="MontoTotal" Type="float" />
+          <Property Name="Concepto" Type="nvarchar" MaxLength="50" />
+          <Property Name="Referencia" Type="nvarchar" MaxLength="20" />
+          <Property Name="Vence" Type="datetime" />
+          <Property Name="Saldo" Type="float" />
+          <Property Name="IdTitular" Type="varchar" MaxLength="7" />
+          <Property Name="IdBeneficiario" Type="varchar" MaxLength="7" />
+          <Property Name="IdVendedor" Type="varchar" MaxLength="7" />
+          <Property Name="MontoServicio" Type="float" />
+          <Property Name="Contado" Type="bit" />
+          <Property Name="IdEmpresa" Type="varchar" MaxLength="7" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="DocumentosProductos">
+          <Key>
+            <PropertyRef Name="IdDocumentoProducto" />
+          </Key>
+          <Property Name="IdDocumentoProducto" Type="varchar" Nullable="false" MaxLength="6" />
+          <Property Name="IDDocumento" Type="varchar" MaxLength="6" />
+          <Property Name="IDProducto" Type="varchar" MaxLength="15" />
+          <Property Name="IDServidor" Type="varchar" MaxLength="7" />
+          <Property Name="Tipo" Type="varchar" MaxLength="20" />
+          <Property Name="Cantidad" Type="float" />
+          <Property Name="Precio" Type="float" />
+          <Property Name="PrecioIVA" Type="float" />
+          <Property Name="Total" Type="float" />
+          <Property Name="Costo" Type="float" />
+          <Property Name="Iva" Type="float" />
+          <Property Name="ExistenciaAnterior" Type="float" />
+          <Property Name="Precio2" Type="float" />
+          <Property Name="Precio3" Type="float" />
+          <Property Name="Entregado" Type="float" />
+          <Property Name="Descuento" Type="float" />
+          <Property Name="DescuentoAdicional" Type="float" />
+          <Property Name="Comentarios" Type="varchar" MaxLength="255" />
+          <Property Name="IdCompra" Type="varchar" MaxLength="7" />
+          <Property Name="Comanda" Type="varchar" MaxLength="6" />
+          <Property Name="Garantia_RecibidoCliente" Type="bit" />
+          <Property Name="Garantia_EnviadoProveedor" Type="bit" />
+          <Property Name="Garantia_RecibidoProveedor" Type="bit" />
+          <Property Name="Garantia_DevuetoProveedor" Type="bit" />
+          <Property Name="Garantia_EntregadoCliente" Type="bit" />
+          <Property Name="Serial" Type="varchar" MaxLength="50" />
+          <Property Name="Hora" Type="datetime" />
+          <Property Name="Vencimiento" Type="datetime" />
+        </EntityType>
+        <EntityType Name="dtproperties">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="property" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="objectid" Type="int" />
+          <Property Name="property" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="value" Type="varchar" MaxLength="255" />
+          <Property Name="uvalue" Type="nvarchar" MaxLength="255" />
+          <Property Name="lvalue" Type="image" />
+          <Property Name="version" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Monedas">
+          <Key>
+            <PropertyRef Name="IdMoneda" />
+          </Key>
+          <Property Name="IdMoneda" Type="varchar" Nullable="false" MaxLength="6" />
+          <Property Name="Moneda" Type="varchar" MaxLength="50" />
+          <Property Name="Simbolo" Type="varchar" MaxLength="50" />
+          <Property Name="Cotizacion" Type="money" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdProducto" Type="nvarchar" Nullable="false" MaxLength="15" />
+          <Property Name="IdDepartamento" Type="nvarchar" MaxLength="6" />
+          <Property Name="Codigo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="100" />
+          <Property Name="Minimo" Type="int" />
+          <Property Name="Maximo" Type="int" />
+          <Property Name="Costo" Type="float" />
+          <Property Name="Iva" Type="float" />
+          <Property Name="Precio" Type="float" />
+          <Property Name="Precio2" Type="float" />
+          <Property Name="Precio3" Type="float" />
+          <Property Name="Unidad" Type="nvarchar" MaxLength="10" />
+          <Property Name="Raciones" Type="float" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="BloqueoPrecio" Type="bit" />
+          <Property Name="LlevaInventario" Type="bit" />
+          <Property Name="Color" Type="nvarchar" MaxLength="50" />
+          <Property Name="Referencia" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Insumo" Type="bit" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="Promocion" Type="bit" />
+          <Property Name="Grupo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CostoMonedaExtranjera" Type="float" />
+          <Property Name="PrecioMonedaExtranjera" Type="float" />
+          <Property Name="Precio01" Type="float" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tarjetas">
+          <Key>
+            <PropertyRef Name="IdTarjeta" />
+          </Key>
+          <Property Name="IdTarjeta" Type="varchar" Nullable="false" MaxLength="6" />
+          <Property Name="Tarjeta" Type="varchar" MaxLength="50" />
+          <Property Name="Comision" Type="float" />
+          <Property Name="ISLR" Type="float" />
+          <Property Name="Dias" Type="int" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Terceros">
+          <Key>
+            <PropertyRef Name="IdTercero" />
+          </Key>
+          <Property Name="IdTercero" Type="varchar" Nullable="false" MaxLength="7" />
+          <Property Name="Codigo" Type="varchar" MaxLength="20" />
+          <Property Name="Tipo" Type="varchar" MaxLength="20" />
+          <Property Name="Rol" Type="varchar" MaxLength="20" />
+          <Property Name="CedulaRif" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nit" Type="varchar" MaxLength="50" />
+          <Property Name="RazonSocial" Type="varchar" MaxLength="100" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="150" />
+          <Property Name="Telefonos" Type="varchar" MaxLength="50" />
+          <Property Name="TelefonoHabitacion" Type="varchar" MaxLength="50" />
+          <Property Name="TelefonoMovil" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Concepto" Type="varchar" MaxLength="100" />
+          <Property Name="Monto" Type="float" />
+          <Property Name="CuentaContable" Type="varchar" MaxLength="50" />
+          <Property Name="LimiteCredito" Type="float" />
+          <Property Name="DiasCredito" Type="int" />
+          <Property Name="TipoPrecio" Type="varchar" MaxLength="20" />
+          <Property Name="ISLR" Type="float" />
+          <Property Name="Comision" Type="float" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Transacciones">
+          <Key>
+            <PropertyRef Name="IdTransaccion" />
+          </Key>
+          <Property Name="IdTransaccion" Type="varchar" Nullable="false" MaxLength="6" />
+          <Property Name="IdBanco" Type="varchar" MaxLength="6" />
+          <Property Name="IdTercero" Type="varchar" MaxLength="7" />
+          <Property Name="IdComprobante" Type="varchar" MaxLength="6" />
+          <Property Name="Tipo" Type="varchar" MaxLength="2" />
+          <Property Name="Numero" Type="varchar" MaxLength="10" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Liberacion" Type="datetime" />
+          <Property Name="Concepto" Type="varchar" MaxLength="200" />
+          <Property Name="Comentarios" Type="ntext" />
+          <Property Name="Debito" Type="money" />
+          <Property Name="Credito" Type="money" />
+          <Property Name="DebitoBancario" Type="money" />
+          <Property Name="Tarjeta" Type="money" />
+          <Property Name="Cheque" Type="money" />
+          <Property Name="Efectivo" Type="money" />
+          <Property Name="Saldo" Type="money" />
+          <Property Name="Conciliado" Type="bit" Nullable="false" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Varios">
+          <Key>
+            <PropertyRef Name="IDVarios" />
+          </Key>
+          <Property Name="IDVarios" Type="nvarchar" Nullable="false" MaxLength="6" />
+          <Property Name="Codigo" Type="nvarchar" MaxLength="30" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Clase" Type="nvarchar" MaxLength="50" />
+          <Property Name="Texto" Type="nvarchar" MaxLength="100" />
+          <Property Name="Valor" Type="float" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <Association Name="FK_DocumentosProductos_Documentos">
+          <End Role="Documentos" Type="BucaneroModel.Store.Documentos" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DocumentosProductos" Type="BucaneroModel.Store.DocumentosProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documentos">
+              <PropertyRef Name="IdDocumento" />
+            </Principal>
+            <Dependent Role="DocumentosProductos">
+              <PropertyRef Name="IDDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+      warning 6013: The table/view 'Bucanero.dbo.Socios' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="Socios">
+        <Property Name="CODIGO" Type="float" />
+        <Property Name="RAZONSOCIAL" Type="nvarchar" MaxLength="255" />
+      </EntityType>-->
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BucaneroModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="BucaneroEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Anexos" EntityType="BucaneroModel.Anexo" />
+          <EntitySet Name="Bancos" EntityType="BucaneroModel.Banco" />
+          <EntitySet Name="Cajas" EntityType="BucaneroModel.Caja" />
+          <EntitySet Name="Comprobantes" EntityType="BucaneroModel.Comprobante" />
+          <EntitySet Name="Contadores" EntityType="BucaneroModel.Contadore" />
+          <EntitySet Name="CuentasContables" EntityType="BucaneroModel.CuentasContable" />
+          <EntitySet Name="CuentasContablesMovimientos" EntityType="BucaneroModel.CuentasContablesMovimiento" />
+          <EntitySet Name="Departamentos" EntityType="BucaneroModel.Departamento" />
+          <EntitySet Name="Depositos" EntityType="BucaneroModel.Deposito" />
+          <EntitySet Name="DesgloseCheques" EntityType="BucaneroModel.DesgloseCheque" />
+          <EntitySet Name="DesgloseTarjetas" EntityType="BucaneroModel.DesgloseTarjeta" />
+          <EntitySet Name="Documentos" EntityType="BucaneroModel.Documento" />
+          <EntitySet Name="DocumentosProductos" EntityType="BucaneroModel.DocumentosProducto" />
+          <EntitySet Name="dtproperties" EntityType="BucaneroModel.dtproperty" />
+          <EntitySet Name="Monedas" EntityType="BucaneroModel.Moneda" />
+          <EntitySet Name="Productos" EntityType="BucaneroModel.Producto" />
+          <EntitySet Name="sysdiagrams" EntityType="BucaneroModel.sysdiagram" />
+          <EntitySet Name="Tarjetas" EntityType="BucaneroModel.Tarjeta" />
+          <EntitySet Name="Terceros" EntityType="BucaneroModel.Tercero" />
+          <EntitySet Name="Transacciones" EntityType="BucaneroModel.Transaccione" />
+          <EntitySet Name="Varios" EntityType="BucaneroModel.Vario" />
+          <AssociationSet Name="FK_DocumentosProductos_Documentos" Association="BucaneroModel.FK_DocumentosProductos_Documentos">
+            <End Role="Documentos" EntitySet="Documentos" />
+            <End Role="DocumentosProductos" EntitySet="DocumentosProductos" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Anexo">
+          <Key>
+            <PropertyRef Name="IdAnexo" />
+          </Key>
+          <Property Name="IdAnexo" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="true" />
+          <Property Name="Tipo" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="IdFK" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <Property Name="Variable" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Texto" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="Valor" Type="Double" />
+          <Property Name="TipoDato" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Banco">
+          <Key>
+            <PropertyRef Name="IdBanco" />
+          </Key>
+          <Property Name="IdBanco" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="Codigo" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Sucursal" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Cuenta" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Tipo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Direccion" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Gerente" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CuentaContable" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="PorcentajeDebitoBancario" Type="Double" />
+          <Property Name="FormatoCheque" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FormatoDeposito" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FormatoNotaDeDebito" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FormatoNotaDeCredito" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Caja">
+          <Key>
+            <PropertyRef Name="IdCaja" />
+          </Key>
+          <Property Name="IdCaja" Type="String" Nullable="false" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="Cajero" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Fecha" Type="DateTime" />
+          <Property Name="Apertura" Type="DateTime" />
+          <Property Name="Cierre" Type="DateTime" />
+          <Property Name="FondoApertura" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="Comprobante">
+          <Key>
+            <PropertyRef Name="IdComprobante" />
+          </Key>
+          <Property Name="IdComprobante" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="Fecha" Type="DateTime" />
+          <Property Name="Tipo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Contadore">
+          <Key>
+            <PropertyRef Name="Variable" />
+          </Key>
+          <Property Name="Variable" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Valor" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CuentasContable">
+          <Key>
+            <PropertyRef Name="IdCuentaContable" />
+          </Key>
+          <Property Name="IdCuentaContable" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="IdCuenta" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="DeMovimientos" Type="Int32" />
+          <Property Name="DePresupuestos" Type="Int32" />
+          <Property Name="ManejaBases" Type="Int32" />
+          <Property Name="ManejaTerceros" Type="Int32" />
+          <Property Name="UsaCentroDeCostos" Type="Int32" />
+          <Property Name="CentroDeCostoFijo" Type="Int32" />
+          <Property Name="CodigoCentroCosto" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="CuentasContablesMovimiento">
+          <Key>
+            <PropertyRef Name="IdMovimiento" />
+          </Key>
+          <Property Name="IdMovimiento" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="IdComprobante" Type="String" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="IdCuenta" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Debe" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Haber" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Concepto" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Departamento">
+          <Key>
+            <PropertyRef Name="IdDepartamento" />
+          </Key>
+          <Property Name="IdDepartamento" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="Codigo" Type="String" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Clase" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Activo" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Deposito">
+          <Key>
+            <PropertyRef Name="IdDeposito" />
+          </Key>
+          <Property Name="IdDeposito" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="Codigo" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Deposito1" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Responsable" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Activo" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DesgloseCheque">
+          <Key>
+            <PropertyRef Name="IdDesgloseCheque" />
+          </Key>
+          <Property Name="IdDesgloseCheque" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="IdTransaccion" Type="String" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="ChequesMismoBanco" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="LiberacionMismoBanco" Type="DateTime" />
+          <Property Name="ChequesMismaPlaza" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="LiberacionMismaPlaza" Type="DateTime" />
+          <Property Name="ChequesFueraPlaza" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="LiberacionFueraPlaza" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="DesgloseTarjeta">
+          <Key>
+            <PropertyRef Name="IdDesgloseTarjeta" />
+          </Key>
+          <Property Name="IdDesgloseTarjeta" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="IdTransaccion" Type="String" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="IdTarjeta" Type="String" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="Monto" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="BaseImponible" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Comision" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ISLR" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Neto" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="Documento">
+          <Key>
+            <PropertyRef Name="IdDocumento" />
+          </Key>
+          <Property Name="IdDocumento" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="IdTercero" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <Property Name="IdDepositoOrigen" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="IdDepositoDestino" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="IdCaja" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="Vinculo" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Tipo" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Numero" Type="String" MaxLength="7" Unicode="true" FixedLength="false" />
+          <Property Name="NumeroFactura" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="NumeroControl" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="DocumentoAfectado" Type="String" MaxLength="7" Unicode="true" FixedLength="false" />
+          <Property Name="Fecha" Type="DateTime" />
+          <Property Name="MontoGravable" Type="Double" />
+          <Property Name="MontoIva" Type="Double" />
+          <Property Name="MontoExento" Type="Double" />
+          <Property Name="MontoRetenido" Type="Double" />
+          <Property Name="MontoTotal" Type="Double" />
+          <Property Name="Concepto" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Referencia" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Vence" Type="DateTime" />
+          <Property Name="Saldo" Type="Double" />
+          <Property Name="IdTitular" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <Property Name="IdBeneficiario" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <Property Name="IdVendedor" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <Property Name="MontoServicio" Type="Double" />
+          <Property Name="Contado" Type="Boolean" />
+          <Property Name="IdEmpresa" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="DocumentosProductos" Relationship="BucaneroModel.FK_DocumentosProductos_Documentos" FromRole="Documentos" ToRole="DocumentosProductos" />
+        </EntityType>
+        <EntityType Name="DocumentosProducto">
+          <Key>
+            <PropertyRef Name="IdDocumentoProducto" />
+          </Key>
+          <Property Name="IdDocumentoProducto" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="IDDocumento" Type="String" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="IDProducto" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="IDServidor" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <Property Name="Tipo" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Cantidad" Type="Double" />
+          <Property Name="Precio" Type="Double" />
+          <Property Name="PrecioIVA" Type="Double" />
+          <Property Name="Total" Type="Double" />
+          <Property Name="Costo" Type="Double" />
+          <Property Name="Iva" Type="Double" />
+          <Property Name="ExistenciaAnterior" Type="Double" />
+          <Property Name="Precio2" Type="Double" />
+          <Property Name="Precio3" Type="Double" />
+          <Property Name="Entregado" Type="Double" />
+          <Property Name="Descuento" Type="Double" />
+          <Property Name="DescuentoAdicional" Type="Double" />
+          <Property Name="Comentarios" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="IdCompra" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <Property Name="Comanda" Type="String" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="Garantia_RecibidoCliente" Type="Boolean" />
+          <Property Name="Garantia_EnviadoProveedor" Type="Boolean" />
+          <Property Name="Garantia_RecibidoProveedor" Type="Boolean" />
+          <Property Name="Garantia_DevuetoProveedor" Type="Boolean" />
+          <Property Name="Garantia_EntregadoCliente" Type="Boolean" />
+          <Property Name="Serial" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Hora" Type="DateTime" />
+          <Property Name="Vencimiento" Type="DateTime" />
+          <NavigationProperty Name="Documento" Relationship="BucaneroModel.FK_DocumentosProductos_Documentos" FromRole="DocumentosProductos" ToRole="Documentos" />
+        </EntityType>
+        <EntityType Name="dtproperty">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="property" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="objectid" Type="Int32" />
+          <Property Name="property" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="value" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="uvalue" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="lvalue" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="version" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Moneda">
+          <Key>
+            <PropertyRef Name="IdMoneda" />
+          </Key>
+          <Property Name="IdMoneda" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="Moneda1" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Simbolo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Cotizacion" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdProducto" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="IdDepartamento" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="Codigo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Minimo" Type="Int32" />
+          <Property Name="Maximo" Type="Int32" />
+          <Property Name="Costo" Type="Double" />
+          <Property Name="Iva" Type="Double" />
+          <Property Name="Precio" Type="Double" />
+          <Property Name="Precio2" Type="Double" />
+          <Property Name="Precio3" Type="Double" />
+          <Property Name="Unidad" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="Raciones" Type="Double" />
+          <Property Name="Fecha" Type="DateTime" />
+          <Property Name="BloqueoPrecio" Type="Boolean" />
+          <Property Name="LlevaInventario" Type="Boolean" />
+          <Property Name="Color" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Referencia" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Tipo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Insumo" Type="Boolean" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="Promocion" Type="Boolean" />
+          <Property Name="Grupo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CostoMonedaExtranjera" Type="Double" />
+          <Property Name="PrecioMonedaExtranjera" Type="Double" />
+          <Property Name="Precio01" Type="Double" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tarjeta">
+          <Key>
+            <PropertyRef Name="IdTarjeta" />
+          </Key>
+          <Property Name="IdTarjeta" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="Tarjeta1" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Comision" Type="Double" />
+          <Property Name="ISLR" Type="Double" />
+          <Property Name="Dias" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Tercero">
+          <Key>
+            <PropertyRef Name="IdTercero" />
+          </Key>
+          <Property Name="IdTercero" Type="String" Nullable="false" MaxLength="7" Unicode="false" FixedLength="false" />
+          <Property Name="Codigo" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Tipo" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Rol" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="CedulaRif" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Nit" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="RazonSocial" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Direccion" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="Telefonos" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TelefonoHabitacion" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TelefonoMovil" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Concepto" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Monto" Type="Double" />
+          <Property Name="CuentaContable" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="LimiteCredito" Type="Double" />
+          <Property Name="DiasCredito" Type="Int32" />
+          <Property Name="TipoPrecio" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="ISLR" Type="Double" />
+          <Property Name="Comision" Type="Double" />
+          <Property Name="Activo" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Transaccione">
+          <Key>
+            <PropertyRef Name="IdTransaccion" />
+          </Key>
+          <Property Name="IdTransaccion" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="IdBanco" Type="String" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="IdTercero" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <Property Name="IdComprobante" Type="String" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="Tipo" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="Numero" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Fecha" Type="DateTime" />
+          <Property Name="Liberacion" Type="DateTime" />
+          <Property Name="Concepto" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="Comentarios" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Debito" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Credito" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DebitoBancario" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Tarjeta" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Cheque" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Efectivo" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Saldo" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Conciliado" Type="Boolean" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Vario">
+          <Key>
+            <PropertyRef Name="IDVarios" />
+          </Key>
+          <Property Name="IDVarios" Type="String" Nullable="false" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="Codigo" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Clase" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Texto" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Valor" Type="Double" />
+          <Property Name="Activo" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK_DocumentosProductos_Documentos">
+          <End Role="Documentos" Type="BucaneroModel.Documento" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DocumentosProductos" Type="BucaneroModel.DocumentosProducto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documentos">
+              <PropertyRef Name="IdDocumento" />
+            </Principal>
+            <Dependent Role="DocumentosProductos">
+              <PropertyRef Name="IDDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BucaneroModelStoreContainer" CdmEntityContainer="BucaneroEntities">
+          <EntitySetMapping Name="Anexos"><EntityTypeMapping TypeName="BucaneroModel.Anexo"><MappingFragment StoreEntitySet="Anexos">
+            <ScalarProperty Name="IdAnexo" ColumnName="IdAnexo" />
+            <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+            <ScalarProperty Name="IdFK" ColumnName="IdFK" />
+            <ScalarProperty Name="Variable" ColumnName="Variable" />
+            <ScalarProperty Name="Texto" ColumnName="Texto" />
+            <ScalarProperty Name="Valor" ColumnName="Valor" />
+            <ScalarProperty Name="TipoDato" ColumnName="TipoDato" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Bancos"><EntityTypeMapping TypeName="BucaneroModel.Banco"><MappingFragment StoreEntitySet="Bancos">
+            <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+            <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+            <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+            <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+            <ScalarProperty Name="Cuenta" ColumnName="Cuenta" />
+            <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+            <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+            <ScalarProperty Name="Gerente" ColumnName="Gerente" />
+            <ScalarProperty Name="CuentaContable" ColumnName="CuentaContable" />
+            <ScalarProperty Name="PorcentajeDebitoBancario" ColumnName="PorcentajeDebitoBancario" />
+            <ScalarProperty Name="FormatoCheque" ColumnName="FormatoCheque" />
+            <ScalarProperty Name="FormatoDeposito" ColumnName="FormatoDeposito" />
+            <ScalarProperty Name="FormatoNotaDeDebito" ColumnName="FormatoNotaDeDebito" />
+            <ScalarProperty Name="FormatoNotaDeCredito" ColumnName="FormatoNotaDeCredito" />
+            <ScalarProperty Name="Activo" ColumnName="Activo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Cajas"><EntityTypeMapping TypeName="BucaneroModel.Caja"><MappingFragment StoreEntitySet="Cajas">
+            <ScalarProperty Name="IdCaja" ColumnName="IdCaja" />
+            <ScalarProperty Name="Cajero" ColumnName="Cajero" />
+            <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+            <ScalarProperty Name="Apertura" ColumnName="Apertura" />
+            <ScalarProperty Name="Cierre" ColumnName="Cierre" />
+            <ScalarProperty Name="FondoApertura" ColumnName="FondoApertura" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Comprobantes"><EntityTypeMapping TypeName="BucaneroModel.Comprobante"><MappingFragment StoreEntitySet="Comprobantes">
+            <ScalarProperty Name="IdComprobante" ColumnName="IdComprobante" />
+            <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+            <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Contadores"><EntityTypeMapping TypeName="BucaneroModel.Contadore"><MappingFragment StoreEntitySet="Contadores">
+            <ScalarProperty Name="Variable" ColumnName="Variable" />
+            <ScalarProperty Name="Valor" ColumnName="Valor" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="CuentasContables"><EntityTypeMapping TypeName="BucaneroModel.CuentasContable"><MappingFragment StoreEntitySet="CuentasContables">
+            <ScalarProperty Name="IdCuentaContable" ColumnName="IdCuentaContable" />
+            <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+            <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+            <ScalarProperty Name="DeMovimientos" ColumnName="DeMovimientos" />
+            <ScalarProperty Name="DePresupuestos" ColumnName="DePresupuestos" />
+            <ScalarProperty Name="ManejaBases" ColumnName="ManejaBases" />
+            <ScalarProperty Name="ManejaTerceros" ColumnName="ManejaTerceros" />
+            <ScalarProperty Name="UsaCentroDeCostos" ColumnName="UsaCentroDeCostos" />
+            <ScalarProperty Name="CentroDeCostoFijo" ColumnName="CentroDeCostoFijo" />
+            <ScalarProperty Name="CodigoCentroCosto" ColumnName="CodigoCentroCosto" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="CuentasContablesMovimientos"><EntityTypeMapping TypeName="BucaneroModel.CuentasContablesMovimiento"><MappingFragment StoreEntitySet="CuentasContablesMovimientos">
+            <ScalarProperty Name="IdMovimiento" ColumnName="IdMovimiento" />
+            <ScalarProperty Name="IdComprobante" ColumnName="IdComprobante" />
+            <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+            <ScalarProperty Name="Debe" ColumnName="Debe" />
+            <ScalarProperty Name="Haber" ColumnName="Haber" />
+            <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Departamentos"><EntityTypeMapping TypeName="BucaneroModel.Departamento"><MappingFragment StoreEntitySet="Departamentos">
+            <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+            <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+            <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+            <ScalarProperty Name="Clase" ColumnName="Clase" />
+            <ScalarProperty Name="Activo" ColumnName="Activo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Depositos"><EntityTypeMapping TypeName="BucaneroModel.Deposito"><MappingFragment StoreEntitySet="Depositos">
+            <ScalarProperty Name="IdDeposito" ColumnName="IdDeposito" />
+            <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+            <ScalarProperty Name="Deposito1" ColumnName="Deposito" />
+            <ScalarProperty Name="Responsable" ColumnName="Responsable" />
+            <ScalarProperty Name="Activo" ColumnName="Activo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="DesgloseCheques"><EntityTypeMapping TypeName="BucaneroModel.DesgloseCheque"><MappingFragment StoreEntitySet="DesgloseCheques">
+            <ScalarProperty Name="IdDesgloseCheque" ColumnName="IdDesgloseCheque" />
+            <ScalarProperty Name="IdTransaccion" ColumnName="IdTransaccion" />
+            <ScalarProperty Name="ChequesMismoBanco" ColumnName="ChequesMismoBanco" />
+            <ScalarProperty Name="LiberacionMismoBanco" ColumnName="LiberacionMismoBanco" />
+            <ScalarProperty Name="ChequesMismaPlaza" ColumnName="ChequesMismaPlaza" />
+            <ScalarProperty Name="LiberacionMismaPlaza" ColumnName="LiberacionMismaPlaza" />
+            <ScalarProperty Name="ChequesFueraPlaza" ColumnName="ChequesFueraPlaza" />
+            <ScalarProperty Name="LiberacionFueraPlaza" ColumnName="LiberacionFueraPlaza" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="DesgloseTarjetas"><EntityTypeMapping TypeName="BucaneroModel.DesgloseTarjeta"><MappingFragment StoreEntitySet="DesgloseTarjetas">
+            <ScalarProperty Name="IdDesgloseTarjeta" ColumnName="IdDesgloseTarjeta" />
+            <ScalarProperty Name="IdTransaccion" ColumnName="IdTransaccion" />
+            <ScalarProperty Name="IdTarjeta" ColumnName="IdTarjeta" />
+            <ScalarProperty Name="Monto" ColumnName="Monto" />
+            <ScalarProperty Name="BaseImponible" ColumnName="BaseImponible" />
+            <ScalarProperty Name="Comision" ColumnName="Comision" />
+            <ScalarProperty Name="ISLR" ColumnName="ISLR" />
+            <ScalarProperty Name="Neto" ColumnName="Neto" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Documentos"><EntityTypeMapping TypeName="BucaneroModel.Documento"><MappingFragment StoreEntitySet="Documentos">
+            <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+            <ScalarProperty Name="IdTercero" ColumnName="IdTercero" />
+            <ScalarProperty Name="IdDepositoOrigen" ColumnName="IdDepositoOrigen" />
+            <ScalarProperty Name="IdDepositoDestino" ColumnName="IdDepositoDestino" />
+            <ScalarProperty Name="IdCaja" ColumnName="IdCaja" />
+            <ScalarProperty Name="Vinculo" ColumnName="Vinculo" />
+            <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+            <ScalarProperty Name="Numero" ColumnName="Numero" />
+            <ScalarProperty Name="NumeroFactura" ColumnName="NumeroFactura" />
+            <ScalarProperty Name="NumeroControl" ColumnName="NumeroControl" />
+            <ScalarProperty Name="DocumentoAfectado" ColumnName="DocumentoAfectado" />
+            <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+            <ScalarProperty Name="MontoGravable" ColumnName="MontoGravable" />
+            <ScalarProperty Name="MontoIva" ColumnName="MontoIva" />
+            <ScalarProperty Name="MontoExento" ColumnName="MontoExento" />
+            <ScalarProperty Name="MontoRetenido" ColumnName="MontoRetenido" />
+            <ScalarProperty Name="MontoTotal" ColumnName="MontoTotal" />
+            <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+            <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+            <ScalarProperty Name="Vence" ColumnName="Vence" />
+            <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+            <ScalarProperty Name="IdTitular" ColumnName="IdTitular" />
+            <ScalarProperty Name="IdBeneficiario" ColumnName="IdBeneficiario" />
+            <ScalarProperty Name="IdVendedor" ColumnName="IdVendedor" />
+            <ScalarProperty Name="MontoServicio" ColumnName="MontoServicio" />
+            <ScalarProperty Name="Contado" ColumnName="Contado" />
+            <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+            <ScalarProperty Name="Activo" ColumnName="Activo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="DocumentosProductos"><EntityTypeMapping TypeName="BucaneroModel.DocumentosProducto"><MappingFragment StoreEntitySet="DocumentosProductos">
+            <ScalarProperty Name="IdDocumentoProducto" ColumnName="IdDocumentoProducto" />
+            <ScalarProperty Name="IDDocumento" ColumnName="IDDocumento" />
+            <ScalarProperty Name="IDProducto" ColumnName="IDProducto" />
+            <ScalarProperty Name="IDServidor" ColumnName="IDServidor" />
+            <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+            <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+            <ScalarProperty Name="Precio" ColumnName="Precio" />
+            <ScalarProperty Name="PrecioIVA" ColumnName="PrecioIVA" />
+            <ScalarProperty Name="Total" ColumnName="Total" />
+            <ScalarProperty Name="Costo" ColumnName="Costo" />
+            <ScalarProperty Name="Iva" ColumnName="Iva" />
+            <ScalarProperty Name="ExistenciaAnterior" ColumnName="ExistenciaAnterior" />
+            <ScalarProperty Name="Precio2" ColumnName="Precio2" />
+            <ScalarProperty Name="Precio3" ColumnName="Precio3" />
+            <ScalarProperty Name="Entregado" ColumnName="Entregado" />
+            <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+            <ScalarProperty Name="DescuentoAdicional" ColumnName="DescuentoAdicional" />
+            <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+            <ScalarProperty Name="IdCompra" ColumnName="IdCompra" />
+            <ScalarProperty Name="Comanda" ColumnName="Comanda" />
+            <ScalarProperty Name="Garantia_RecibidoCliente" ColumnName="Garantia_RecibidoCliente" />
+            <ScalarProperty Name="Garantia_EnviadoProveedor" ColumnName="Garantia_EnviadoProveedor" />
+            <ScalarProperty Name="Garantia_RecibidoProveedor" ColumnName="Garantia_RecibidoProveedor" />
+            <ScalarProperty Name="Garantia_DevuetoProveedor" ColumnName="Garantia_DevuetoProveedor" />
+            <ScalarProperty Name="Garantia_EntregadoCliente" ColumnName="Garantia_EntregadoCliente" />
+            <ScalarProperty Name="Serial" ColumnName="Serial" />
+            <ScalarProperty Name="Hora" ColumnName="Hora" />
+            <ScalarProperty Name="Vencimiento" ColumnName="Vencimiento" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="dtproperties"><EntityTypeMapping TypeName="BucaneroModel.dtproperty"><MappingFragment StoreEntitySet="dtproperties">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="objectid" ColumnName="objectid" />
+            <ScalarProperty Name="property" ColumnName="property" />
+            <ScalarProperty Name="value" ColumnName="value" />
+            <ScalarProperty Name="uvalue" ColumnName="uvalue" />
+            <ScalarProperty Name="lvalue" ColumnName="lvalue" />
+            <ScalarProperty Name="version" ColumnName="version" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Monedas"><EntityTypeMapping TypeName="BucaneroModel.Moneda"><MappingFragment StoreEntitySet="Monedas">
+            <ScalarProperty Name="IdMoneda" ColumnName="IdMoneda" />
+            <ScalarProperty Name="Moneda1" ColumnName="Moneda" />
+            <ScalarProperty Name="Simbolo" ColumnName="Simbolo" />
+            <ScalarProperty Name="Cotizacion" ColumnName="Cotizacion" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Productos"><EntityTypeMapping TypeName="BucaneroModel.Producto"><MappingFragment StoreEntitySet="Productos">
+            <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+            <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+            <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+            <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+            <ScalarProperty Name="Minimo" ColumnName="Minimo" />
+            <ScalarProperty Name="Maximo" ColumnName="Maximo" />
+            <ScalarProperty Name="Costo" ColumnName="Costo" />
+            <ScalarProperty Name="Iva" ColumnName="Iva" />
+            <ScalarProperty Name="Precio" ColumnName="Precio" />
+            <ScalarProperty Name="Precio2" ColumnName="Precio2" />
+            <ScalarProperty Name="Precio3" ColumnName="Precio3" />
+            <ScalarProperty Name="Unidad" ColumnName="Unidad" />
+            <ScalarProperty Name="Raciones" ColumnName="Raciones" />
+            <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+            <ScalarProperty Name="BloqueoPrecio" ColumnName="BloqueoPrecio" />
+            <ScalarProperty Name="LlevaInventario" ColumnName="LlevaInventario" />
+            <ScalarProperty Name="Color" ColumnName="Color" />
+            <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+            <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+            <ScalarProperty Name="Insumo" ColumnName="Insumo" />
+            <ScalarProperty Name="Activo" ColumnName="Activo" />
+            <ScalarProperty Name="Promocion" ColumnName="Promocion" />
+            <ScalarProperty Name="Grupo" ColumnName="Grupo" />
+            <ScalarProperty Name="CostoMonedaExtranjera" ColumnName="CostoMonedaExtranjera" />
+            <ScalarProperty Name="PrecioMonedaExtranjera" ColumnName="PrecioMonedaExtranjera" />
+            <ScalarProperty Name="Precio01" ColumnName="Precio01" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams"><EntityTypeMapping TypeName="BucaneroModel.sysdiagram"><MappingFragment StoreEntitySet="sysdiagrams">
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+            <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+            <ScalarProperty Name="version" ColumnName="version" />
+            <ScalarProperty Name="definition" ColumnName="definition" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Tarjetas"><EntityTypeMapping TypeName="BucaneroModel.Tarjeta"><MappingFragment StoreEntitySet="Tarjetas">
+            <ScalarProperty Name="IdTarjeta" ColumnName="IdTarjeta" />
+            <ScalarProperty Name="Tarjeta1" ColumnName="Tarjeta" />
+            <ScalarProperty Name="Comision" ColumnName="Comision" />
+            <ScalarProperty Name="ISLR" ColumnName="ISLR" />
+            <ScalarProperty Name="Dias" ColumnName="Dias" />
+            <ScalarProperty Name="Activo" ColumnName="Activo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Terceros"><EntityTypeMapping TypeName="BucaneroModel.Tercero"><MappingFragment StoreEntitySet="Terceros">
+            <ScalarProperty Name="IdTercero" ColumnName="IdTercero" />
+            <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+            <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+            <ScalarProperty Name="Rol" ColumnName="Rol" />
+            <ScalarProperty Name="CedulaRif" ColumnName="CedulaRif" />
+            <ScalarProperty Name="Nit" ColumnName="Nit" />
+            <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+            <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+            <ScalarProperty Name="Telefonos" ColumnName="Telefonos" />
+            <ScalarProperty Name="TelefonoHabitacion" ColumnName="TelefonoHabitacion" />
+            <ScalarProperty Name="TelefonoMovil" ColumnName="TelefonoMovil" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+            <ScalarProperty Name="Monto" ColumnName="Monto" />
+            <ScalarProperty Name="CuentaContable" ColumnName="CuentaContable" />
+            <ScalarProperty Name="LimiteCredito" ColumnName="LimiteCredito" />
+            <ScalarProperty Name="DiasCredito" ColumnName="DiasCredito" />
+            <ScalarProperty Name="TipoPrecio" ColumnName="TipoPrecio" />
+            <ScalarProperty Name="ISLR" ColumnName="ISLR" />
+            <ScalarProperty Name="Comision" ColumnName="Comision" />
+            <ScalarProperty Name="Activo" ColumnName="Activo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Transacciones"><EntityTypeMapping TypeName="BucaneroModel.Transaccione"><MappingFragment StoreEntitySet="Transacciones">
+            <ScalarProperty Name="IdTransaccion" ColumnName="IdTransaccion" />
+            <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+            <ScalarProperty Name="IdTercero" ColumnName="IdTercero" />
+            <ScalarProperty Name="IdComprobante" ColumnName="IdComprobante" />
+            <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+            <ScalarProperty Name="Numero" ColumnName="Numero" />
+            <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+            <ScalarProperty Name="Liberacion" ColumnName="Liberacion" />
+            <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+            <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+            <ScalarProperty Name="Debito" ColumnName="Debito" />
+            <ScalarProperty Name="Credito" ColumnName="Credito" />
+            <ScalarProperty Name="DebitoBancario" ColumnName="DebitoBancario" />
+            <ScalarProperty Name="Tarjeta" ColumnName="Tarjeta" />
+            <ScalarProperty Name="Cheque" ColumnName="Cheque" />
+            <ScalarProperty Name="Efectivo" ColumnName="Efectivo" />
+            <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+            <ScalarProperty Name="Conciliado" ColumnName="Conciliado" />
+            <ScalarProperty Name="Activo" ColumnName="Activo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Varios"><EntityTypeMapping TypeName="BucaneroModel.Vario"><MappingFragment StoreEntitySet="Varios">
+            <ScalarProperty Name="IDVarios" ColumnName="IDVarios" />
+            <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+            <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+            <ScalarProperty Name="Clase" ColumnName="Clase" />
+            <ScalarProperty Name="Texto" ColumnName="Texto" />
+            <ScalarProperty Name="Valor" ColumnName="Valor" />
+            <ScalarProperty Name="Activo" ColumnName="Activo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1" ZoomLevel="58">
+        <EntityTypeShape EntityType="BucaneroModel.Anexo" Width="1.5" PointX="5.75" PointY="0.75" Height="2.3648893229166665" IsExpanded="true" />
+        <EntityTypeShape EntityType="BucaneroModel.Banco" Width="1.5" PointX="5.75" PointY="4.75" Height="3.9033007812499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="BucaneroModel.Caja" Width="1.5" PointX="7.75" PointY="0.75" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="BucaneroModel.Comprobante" Width="1.5" PointX="7.75" PointY="3.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="BucaneroModel.Contadore" Width="1.5" PointX="7.75" PointY="6.75" Height="1.4033821614583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="BucaneroModel.CuentasContable" Width="1.5" PointX="9.75" PointY="0.75" Height="2.9417936197916665" IsExpanded="true" />
+        <EntityTypeShape EntityType="BucaneroModel.CuentasContablesMovimiento" Width="1.5" PointX="9.75" PointY="4.75" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="BucaneroModel.Departamento" Width="1.5" PointX="5.75" PointY="9.75" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="BucaneroModel.Deposito" Width="1.5" PointX="9.75" PointY="7.75" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="BucaneroModel.DesgloseCheque" Width="1.5" PointX="7.75" PointY="10.75" Height="2.5571907552083353" IsExpanded="true" />
+        <EntityTypeShape EntityType="BucaneroModel.DesgloseTarjeta" Width="1.5" PointX="9.75" PointY="10.75" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="BucaneroModel.Documento" Width="1.5" PointX="0.75" PointY="5.125" Height="6.5955208333333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="BucaneroModel.DocumentosProducto" Width="1.5" PointX="3" PointY="5.125" Height="6.5955208333333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="BucaneroModel.dtproperty" Width="1.5" PointX="11.75" PointY="0.75" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="BucaneroModel.Moneda" Width="1.5" PointX="11.75" PointY="4.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="BucaneroModel.Producto" Width="1.5" PointX="11.75" PointY="7.75" Height="6.0186165364583388" IsExpanded="true" />
+        <EntityTypeShape EntityType="BucaneroModel.sysdiagram" Width="1.5" PointX="0.75" PointY="12.75" Height="1.9802864583333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="BucaneroModel.Tarjeta" Width="1.5" PointX="2.75" PointY="12.75" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="BucaneroModel.Tercero" Width="1.5" PointX="4.75" PointY="12.75" Height="5.0571093750000031" IsExpanded="true" />
+        <EntityTypeShape EntityType="BucaneroModel.Transaccione" Width="1.5" PointX="13.75" PointY="0.75" Height="4.6725065104166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="BucaneroModel.Vario" Width="1.5" PointX="13.75" PointY="6.75" Height="2.3648893229166674" IsExpanded="true" />
+        <AssociationConnector Association="BucaneroModel.FK_DocumentosProductos_Documentos" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.4227604166666659" />
+          <ConnectorPoint PointX="3" PointY="8.4227604166666659" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

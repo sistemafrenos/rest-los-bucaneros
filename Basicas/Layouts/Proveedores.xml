@@ -1,0 +1,88 @@
+﻿<XtraSerializer version="1.0" application="View">
+  <property name="#LayoutVersion" />
+  <property name="BestFitMaxRowCount">-1</property>
+  <property name="PreviewLineCount">-1</property>
+  <property name="HorzScrollStep">3</property>
+  <property name="FocusRectStyle">CellFocus</property>
+  <property name="ScrollStyle">LiveVertScroll, LiveHorzScroll</property>
+  <property name="PreviewIndent">-1</property>
+  <property name="GroupPanelText" />
+  <property name="PreviewFieldName" />
+  <property name="VertScrollTipFieldName" />
+  <property name="LevelIndent">-1</property>
+  <property name="GroupFooterShowMode">VisibleIfExpanded</property>
+  <property name="NewItemRowText" />
+  <property name="SynchronizeClones">true</property>
+  <property name="BorderStyle">Default</property>
+  <property name="ViewCaption" />
+  <property name="DetailHeight">350</property>
+  <property name="Name">gridView1</property>
+  <property name="DetailTabHeaderLocation">Top</property>
+  <property name="ActiveFilterEnabled">true</property>
+  <property name="Columns" iskey="true" value="5">
+    <property name="Item1" isnull="true" iskey="true">
+      <property name="VisibleIndex">0</property>
+      <property name="Visible">true</property>
+      <property name="Width">415</property>
+      <property name="ColumnEditName" />
+      <property name="Name">colRazonSocial</property>
+      <property name="FieldName">RazonSocial</property>
+    </property>
+    <property name="Item2" isnull="true" iskey="true">
+      <property name="VisibleIndex">1</property>
+      <property name="Visible">true</property>
+      <property name="Width">124</property>
+      <property name="ColumnEditName" />
+      <property name="Name">colCedulaRif</property>
+      <property name="FieldName">CedulaRif</property>
+    </property>
+    <property name="Item3" isnull="true" iskey="true">
+      <property name="VisibleIndex">2</property>
+      <property name="Visible">true</property>
+      <property name="Width">124</property>
+      <property name="ColumnEditName" />
+      <property name="Name">colDireccion</property>
+      <property name="FieldName">Direccion</property>
+    </property>
+    <property name="Item4" isnull="true" iskey="true">
+      <property name="VisibleIndex">3</property>
+      <property name="Visible">true</property>
+      <property name="Width">124</property>
+      <property name="ColumnEditName" />
+      <property name="Name">colTelefonos</property>
+      <property name="FieldName">Telefonos</property>
+    </property>
+    <property name="Item5" isnull="true" iskey="true">
+      <property name="VisibleIndex">4</property>
+      <property name="Visible">true</property>
+      <property name="Width">130</property>
+      <property name="ColumnEditName" />
+      <property name="Name">colEmail</property>
+      <property name="FieldName">Email</property>
+    </property>
+  </property>
+  <property name="ShowButtonMode">ShowForFocusedCell</property>
+  <property name="ViewCaptionHeight">-1</property>
+  <property name="FixedLineWidth">2</property>
+  <property name="ColumnPanelRowHeight">-1</property>
+  <property name="IndicatorWidth">-1</property>
+  <property name="OptionsView" isnull="true" iskey="true">
+    <property name="ShowGroupPanel">false</property>
+    <property name="ShowAutoFilterRow">true</property>
+  </property>
+  <property name="OptionsBehavior" isnull="true" iskey="true">
+    <property name="Editable">false</property>
+  </property>
+  <property name="FooterPanelHeight">-1</property>
+  <property name="RowSeparatorHeight">0</property>
+  <property name="GroupRowHeight">-1</property>
+  <property name="RowHeight">-1</property>
+  <property name="VertScrollVisibility">Auto</property>
+  <property name="HorzScrollVisibility">Auto</property>
+  <property name="GroupFormat">{0}: [#image]{1} {2}</property>
+  <property name="ChildGridLevelName" />
+  <property name="ActiveFilterString" />
+  <property name="FormatConditions" iskey="true" value="0" />
+  <property name="GroupSummary" iskey="true" value="0" />
+  <property name="GroupSummarySortInfoState" />
+</XtraSerializer>
